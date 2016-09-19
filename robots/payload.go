@@ -52,18 +52,26 @@ var (
 	ParseStyleNone = ParseStyle("none")
 )
 
+type ResponseType string
+
+var (
+	ResponseTypeEphemeral = ResponseType("ephemeral")
+	ResponseTypeInChannel = ResponseType("in_channel")
+)
+
 type Message struct {
-	Domain      string       `json:"domain"`
-	Channel     string       `json:"channel"`
-	Username    string       `json:"username"`
-	Text        string       `json:"text"`
-	IconEmoji   string       `json:"icon_emoji,omitempty"`
-	IconURL     string       `json:"icon_url,omitempty"`
-	Attachments []Attachment `json:"attachments,omitempty"`
-	UnfurlLinks bool         `json:"unfurl_links,omitempty"`
-	Parse       ParseStyle   `json:"parse,omitempty"`
-	LinkNames   bool         `json:"link_names,omitempty"`
-	Markdown    bool         `json:"mrkdwn,omitempty"`
+	Domain       string       `json:"domain"`
+	Channel      string       `json:"channel"`
+	Username     string       `json:"username"`
+	Text         string       `json:"text"`
+	IconEmoji    string       `json:"icon_emoji,omitempty"`
+	IconURL      string       `json:"icon_url,omitempty"`
+	Attachments  []Attachment `json:"attachments,omitempty"`
+	UnfurlLinks  bool         `json:"unfurl_links,omitempty"`
+	Parse        ParseStyle   `json:"parse,omitempty"`
+	LinkNames    bool         `json:"link_names,omitempty"`
+	Markdown     bool         `json:"mrkdwn,omitempty"`
+	ResponseType ResponseType `json:"response_type,omitempty"`
 }
 
 type IncomingWebhook Message
