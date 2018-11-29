@@ -78,6 +78,7 @@ type IncomingWebhook Message
 type SlashCommandResponse Message
 
 type Attachment struct {
+	Title      string            `json:"title"`
 	Fallback   string            `json:"fallback"`
 	Pretext    string            `json:"pretext,omitempty"`
 	Text       string            `json:"text,omitempty"`
